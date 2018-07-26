@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
+        <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}" />
+        <link rel="stylesheet" href="{{ asset('build/css/adminEditeur.css') }}" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="container">
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }} alert-dismissible fade show">
+                    {{ message|raw }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+        {% block main_content %}
+            {% block header %}   
+            {% block menu %}
+            <div class="menuAdmin">
+                    {{ knp_menu_render('main') }}
+                    {{ knp_menu_render('administrateur' , {'style':'horizontal-right'}) }}
+                    {{ knp_menu_render('user' , {'style':'horizontal-right'})}}      
+            </div>              
+            {% endblock %}
+                <header>
+                <div class="header2">
+                    <div class="headerTop2">
+
+                    </div>
+                    <div class="headerFoot2">
+
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="logo2">
+                    </div>
+                
+                    <div class="siteTitle2">
+                        <h1>Pix my House</h1>
+                    </div>
+                    <div class="siteTitle3">
+                        <h1>ADMIN</h1>
+                    </div>
+                </a>
+                </header>
+            {% endblock %}
+            {% block body %}{% endblock %}
+        {% endblock %}
+        <script src="{{ asset('build/js/app.js') }}"></script>
+        {{ tinymce_init() }}
+        {% block javascripts %}{% endblock %}
+        </div>
+        
+    </body>
+</html>

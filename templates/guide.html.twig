@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+ <main>
+            <div class="jumbotron">
+                <div class="main mainPage">
+                    <h1>GUIDE</h1>
+                    <div class="headjumbo">
+                        <div class="guide">
+                            <h2>J'ai tout ce qu'il faut, comment je fais maintenant?</h2>
+
+                            <hr>
+
+                            <div class="step">
+                            <p><img  class="float-left" src="{{ asset('images/frontpage/frontPage1.jpg') }}">Premièrement définir le contexte (décoration personnelle, pour le bureau, pour un évènement , etc... Rendez-vous dans notre boutique pour acheter vos KIT tout fait où simplement trouver l'inspiration pour générer votre dessin via notre éditeur !</p>
+                            </div>
+
+                            <hr>
+                            
+                            <div class="step">
+                            <p><img class="float-right" src="{{ asset('images/frontpage/frontPage2.jpg') }}">Vous venez de recevoir votre KIT ou vous possédez votre matériel.</p>
+                            <br>
+                            <p>-Nettoyer la surface pour que l'adhésion des POST-IT soit optimal (c.à.d. pas de poussière ni d'humidité)</p>
+                            <br>
+                            <p>-Mesurer votre surface,notre site vous donne la dimension final de votre oeuvre, se serait bête que votre BATMAN n'ait pas de corne ou que votre MARIO n'ait pas de pieds ! Nous vous conseillons de définir la zone exacte avant le coller le moindre POST-IT</p>
+                            </div>
+
+                            <hr>
+                            
+                            <div class="step">
+                            <p><img class="float-left" src="{{ asset('images/frontpage/frontPage3.jpg') }}">C'est partit ! Se ne sont que des carrés de couleurs, ils ne vous jugeront pas si vous ne les placés pas au bonne endroit du premier coup !</p>
+                            <br>
+                            <p>Prenez de la distance pour admirer votre oeuvre de temps en temps, vous remarquez immédiatement si quelques chose cloche</p>
+                            </div>
+
+                            <hr>
+
+                            <div class="step">
+                            <p>Bravo vous avez réussi, n'hésitez pas à nous envoyer le résultat, une Gallerie est en préparation !</p>
+                            <img src="{{ asset('images/frontpage/frontPage4.jpg') }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footjumbo">
+  
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}

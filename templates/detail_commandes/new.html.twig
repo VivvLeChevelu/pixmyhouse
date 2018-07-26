@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Detail commandes{% endblock %}
+
+{% block body %}
+<div class="admincss">
+    <h1 class="text-center mb-4 bg-secondary">Création détails de commande</h1>
+
+    {{ include('detail_commandes/_form.html.twig') }}
+
+    <a href="{{ path('detail_commandes_index') }}" class="btn btn-primary mt-2">Retour à la liste des details de commandes</a>
+</div>
+{% endblock %}

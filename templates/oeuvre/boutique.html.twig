@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique{% endblock %}
+
+{% block body %}
+        <main>
+            <div class="jumbotron">
+                <div class="main mainPage">
+                    <h1>BOUTIQUE</h1>
+                    <div class="headjumbo">
+                        <div class="rechercher">
+                                <div class="menuCategorie dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true">
+                                        CATEGORIES
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="#" title" ">--TOUS--</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title" ">Jeux Vidéo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Nourriture</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Super Héros</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Marque </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Création membres </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <h2> Panier </h2>
+                            {% if listCommande is not defined %}
+                            <p>Vous avez <span class="red">0</span> articles dans le panier  </p> 
+                            {% else %}
+                            <p><strong>Vous avez <span class="red">{{ listCommande|length }}</span> articles dans le panier</strong></p> 
+                            {% endif %}
+                                        <div> 
+                               <a class="btn btn-primary" href="{{path('panier_voir' )}}"> <i class="fa fa-shopping-cart"> Panier</i></a>
+                            </div>              
+                        </div>
+                        <div class="articles">
+                            <h2>Liste des articles :</h2>
+                            <table class="table">
+                                <tbody>
+                                {% for oeuvre in oeuvres %}
+                                    {% if oeuvre.status %}
+                                <div class="row-oeuvre oeuvreBoutique">
+                                    <p class="oeuvre-taillex d-none" data="{{ oeuvre.largeur }}"></p>
+                                    <p class="oeuvre-tailley d-none" data="{{ oeuvre.hauteur }}"></p>
+                                    <p class="oeuvre-img d-none" data="{{ oeuvre.tableau }}"></p>
+                                    
+                                        {# <td class="oeuvre-taillex d-none" data="{{ oeuvre.largeur }}">{{ oeuvre.largeur }}</td>
+                                        <td class="oeuvre-tailley d-none" data="{{ oeuvre.hauteur }}">{{ oeuvre.hauteur }}</td> #} 
+                                        <div class='b_main'>
+                                                <div class="b_post_cont">
+                                                    <!-- <div class="post_it"></div> -->
+                                                    <!-- Affichage des Post-it -->
+                                                    <!-- Les post-it font 50px/50px -->
+                                                </div>                    
+                                        </div>
+                                        <div><a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="btn btn-primary mt-2 mb-2">{{ oeuvre.nom }}</a></div>
+                                            {# <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}"><i class="fa fa-edit"></i></a> #}
+                                    </div>
+                                    {% endif %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="9">Aucune données trouvées</td>
+                                    </tr>
+                                    
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                        
+                        </div>
+                    </div>
+
+                    <div class="footjumbo">
+  
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+
+{% endblock %}
+

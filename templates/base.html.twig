@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
+        <link rel="stylesheet" href="{{ asset('build/css/index.css') }}" />
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="container">
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }} alert-dismissible fade show">
+                    {{ message|raw }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+        {% block main_content %}
+    
+                {% block menu %}
+                <div class="menuAdmin">
+                    {{ knp_menu_render('main') }}
+                    {{ knp_menu_render('administrateur' , {'style':'horizontal-right'}) }}
+                    {{ knp_menu_render('user' , {'style':'horizontal-right'})}}   
+                </div>                 
+                {% endblock %}
+  
+
+            {% block header %}   
+                <header>
+                <div class="header">
+                    <div class="headerTop">
+
+                    </div>
+                    <div class="headerFoot">
+                        <a href="/register">Inscription</a>
+                        <a href="/login">Connexion</a>
+                    </div>
+                </div>
+                <a href="/">
+                    <div class="logo">
+                    </div>
+                </a>
+                    <div class="siteTitle">
+                        <h1>Pix my House</h1>
+                    </div>
+                </header>
+            {% endblock %}
+            {% block body %}{% endblock %}
+            {% block footer %}   
+            <footer>
+           
+
+            <div class="logoCentre">
+            
+            </div>
+                <div class="footer">
+
+                    <div class="map">
+                        <h3>Où sommes nous ?</h3>
+                    <iframe class="piennes" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41621.73388708217!2d5.750022288890936!3d49.307496595625594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ead1367be337cb%3A0x40a5fb99a3af410!2s54490+Piennes!5e0!3m2!1sfr!2sfr!4v1532594342090" width="300" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="titre">
+                        <h3>Nous contacter</h3>
+                        <div class="adresse">
+                        <h5>Vivien MICHOT</i></h5>
+                        <h6></i> mvicorp@hotmail.fr</h6>
+                        <h5>Léopold SCOMAZZON</h5>
+                        <h6> leo2.scomazon@gmail.fr</h6>
+                        <h5>Florian ANTONIO</h5>
+                        <h6> florian.antonio@laposte.net</h6>
+                        </div>
+                    </div>
+
+                    <div class="fleche">
+                        <img src="{{ asset('images/Menu/fleche.png') }}" alt="Flèche">
+                    </div>
+                    <p>Copyrigth - wf3 - group4 -PixMyHouse</p>
+                </div>
+            </footer>
+            {% endblock %}
+        {% endblock %}
+
+        <script src="{{ asset('build/js/app.js') }}"></script>
+        {{ tinymce_init() }}
+        {% block javascripts %}{% endblock %}
+        </div>
+        
+    </body>
+</html>

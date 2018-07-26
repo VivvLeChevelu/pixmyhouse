@@ -1,0 +1,12 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+        {% trans_default_domain 'FOSUserBundle' %}
+
+        <div class="container bg-secondary">
+        {% block fos_user_content %}
+                <h4 class="m-4">Félicitation vous etes bien inscrit !</h4>  
+                <button class="btn btn-primary m-4"><a href="{{ path('homepage') }}">Retour à la page d'accueil</a></button>
+        {% endblock fos_user_content %}
+        </div>
+{% endblock %}

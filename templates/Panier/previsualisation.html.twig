@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Previsualisation panier{% endblock %}
+
+{% block body %}
+<div class="main mainPage">
+<div class="paniercss">
+    <h3 class="text-center m-4 ">Contenu du panier</h3> 
+        <div class="row">
+        <div class="col-md-6">
+             <fieldset>
+                <legend >{{ 'commande.details'|trans|parse_icons }}</legend>
+                <table class="table table-dark table-striped  table-sm  table-responsive-md">
+                    <thead class="thead-light text-center">
+                        <tr class="text-center">
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Categorie</th>
+                            <th>Largeur</th>
+                            <th>Hauteur</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for detail in listOeuvresPanier %}
+                            <tr class="text-center">
+                                <td> {{ detail.id }}</td>
+                                <td>{{ detail.nom }}</td>
+                                <td>{{ detail.categorie }}</td>
+                                <td>{{ detail.largeur }} </td>
+                                <td>{{ detail.hauteur }} </td>
+                                <td>{{ listQuantités[detail.id] }} </td>
+                            </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+            </fieldset>
+            <div>          
+                <a class="btn btn-success" href="{{ path('oeuvre_index') }}"> <i class="fa fa-shopping-cart">Boutique</i></a>
+            </div> 
+            <br>
+            <div>              
+                <a class="btn btn-success" href="{{path('panier_validerCommande')}}"> <i class="fa fa-edit">Valider le panier</i></a>
+            </div> 
+            <br>
+            <div> 
+                <a class="btn btn-danger" href="{{path('panier_vider' )}}"> <i class="fa fa-trash"> Tout effacer</i></a>
+            </div> 
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
